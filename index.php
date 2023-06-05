@@ -68,8 +68,7 @@ if (isset($_GET['key']) ) {
                             if ( confirm('Confirmar remoção?') ) {
                                 window.location = 'http://localhost:8000/?key=$key';
                         }
-                        return false;
-
+                        
                         </script>
 
 
