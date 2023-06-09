@@ -22,6 +22,7 @@
         </div>
         <div class="form">
             <form action="" method="get">
+                <label for="task_name">Tarefa:</label>
                 <input type="text" name="task_name" placehholder="Nome da tarefa">
                 <button type="submit">Cadastrar</button>
             </form>
