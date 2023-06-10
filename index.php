@@ -1,3 +1,18 @@
+<?php
+
+session_start();
+
+if ( !isset($_SESSION['tasks']) ) {
+    $_SESSION['tasks'] = array();
+}
+
+if ( isset($_GET['tasks_name']) ) {
+    array_push($_SESSION['tasks'], $_GET['tasks_name']);
+    unset($_GET['tasks_name']);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,11 +45,19 @@
         <div class="separator">
         </div>
         <div class="list-tasks">
-            <ul>
-                <li>Tarefa 1</li>
-                <li>Tarefa 2</li>
-                <li>Tarefa 3</li>
-            </ul>
+            <?php
+                 if ( isset($_SESSION['tasks']) ) {
+                    echo "<ul>";
+
+                    foreach ( $_SESSION['tasks'] as $key => $task ) {
+                        echo "<li>$task</li>";
+                    } 
+
+                    echo "</ul>";
+                 }
+
+            ?>
+            
         </div>
         <div class="footer">
             <p>Desenvolvido por Diego Ferreira</p>
