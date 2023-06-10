@@ -107,6 +107,19 @@ body {
     background: #80CBC4;
 }
 
+.btn-clear {
+    background: #EF5350;
+    padding: 12px;
+    color: #fff;
+    border: none;
+
+    transition: background 0.3s;
+}
+
+.btn-clear {
+    background: #EF9A9A;
+}
+
 .footer {
     background: #f0f0f5;
     border-radius: 4px;
