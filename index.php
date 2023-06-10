@@ -11,6 +11,10 @@ if ( isset($_GET['tasks_name']) ) {
     unset($_GET['tasks_name']);
 }
 
+if ( isset($_GET['clear']) ) {
+    unset($_SESSION['tasks']);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +61,10 @@ if ( isset($_GET['tasks_name']) ) {
                  }
 
             ?>
-            
+            <form action="" method="get">
+                <input type="hidden" name="clear" value="clear">
+                <button type="submit">Limpar Tarefas</button>
+            </form>
         </div>
         <div class="footer">
             <p>Desenvolvido por Diego Ferreira</p>
