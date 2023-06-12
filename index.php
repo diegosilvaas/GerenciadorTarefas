@@ -54,7 +54,9 @@ if ( isset($_GET['clear']) ) {
                     echo "<ul>";
 
                     foreach ( $_SESSION['tasks'] as $key => $task ) {
-                        echo "<li>$task</li>";
+                        echo "<li>
+                        <span>$task</span>
+                        </li>";
                     } 
 
                     echo "</ul>";
