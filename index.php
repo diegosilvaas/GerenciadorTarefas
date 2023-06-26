@@ -13,6 +13,12 @@ if ( isset($_GET['task_name']) ) {
 
 if ( isset($_GET['clear']) ) {
     unset($_SESSION['tasks']);
+    unset($_GET['clear']);
+}
+
+if (isset($_GET['key']) ) {
+    array_splice( $_SESSION['tasks'], $_GET['key'], 1);
+    unset($_GET['key']);
 }
 
 ?>
@@ -56,6 +62,17 @@ if ( isset($_GET['clear']) ) {
                     foreach ( $_SESSION['tasks'] as $key => $task ) {
                         echo "<li>
                         <span>$task</span>
+                        <button type='button' class='btn-clear' onclick='deletar$key()'>Remover</button>
+                        <script>
+                        function deletar$key(){
+                            if ( confirm('Confirmar remoção?') ) {
+                                window.location = 'http://localhost:8000/?key=$key';
+                        }
+                        return false;
+
+                        </script>
+
+
                         </li>";
                     } 
 
