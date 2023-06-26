@@ -88,8 +88,7 @@ body {
 
 .list-tasks ul li {
     background: #4DB6AC;
-    height: 32px;
-    border: none;
+    height: 54px;
     border-radius: 4px;
     color: #FFF;
     margin-top: 4px;
