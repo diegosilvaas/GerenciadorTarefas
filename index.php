@@ -7,8 +7,14 @@ if ( !isset($_SESSION['tasks']) ) {
 }
 
 if ( isset($_GET['task_name']) ) {
-    array_push($_SESSION['tasks'], $_GET['task_name']);
-    unset($_GET['task_name']);
+    if ( $_GET['task_name'] != "") {
+        array_push($_SESSION['tasks'], $_GET['task_name']);
+        unset($_GET['task_name']);
+
+    }
+    else {
+        $_SESSION['message'] = " O campo nome da tarefa não pode estar vazio!";
+    }
 }
 
 if ( isset($_GET['clear']) ) {
@@ -51,6 +57,12 @@ if (isset($_GET['key']) ) {
                 <input type="text" name="task_name" placehholder="Nome da tarefa">
                 <button type="submit">Cadastrar</button>
             </form>
+            <?php
+                if ( isset( $_SESSION['message']) ) {
+                    echo "<p  style='color: #EF5350';>" . $_SESSION['message'] . "</p>";
+                    unset( $_SESSION['message']);
+                }
+            ?>
         </div>
         <div class="separator">
         </div>
@@ -68,7 +80,8 @@ if (isset($_GET['key']) ) {
                             if ( confirm('Confirmar remoção?') ) {
                                 window.location = 'http://localhost:8000/?key=$key';
                         }
-                        
+                        return false;
+
                         </script>
 
 
