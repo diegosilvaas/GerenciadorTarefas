@@ -52,9 +52,15 @@ if (isset($_GET['key']) ) {
         <div class="class">
         </div>
         <div class="form">
-            <form action="" method="get">
-                <label for="task_name">Tarefa:</label>
-                <input type="text" name="task_name" placehholder="Nome da tarefa">
+            <form action="task.php" method="post" enctype="multipart/form-data">
+                <label for="task_name">Tarefa: </label>
+                <input type="text" name="task_name" placeholder="Nome da Tarefa">
+                <label for="task_description">Descrição: </label>
+                <input type="text" name="task_description" placeholder="Descrição da Tarefa">
+                <label for="task_date">Data: </label>
+                <input type="datetime-local" name="task_date">
+                <label for="task_image">Imagem: </label>
+                <input type="file" name="task_image">
                 <button type="submit">Cadastrar</button>
             </form>
             <?php
@@ -76,9 +82,9 @@ if (isset($_GET['key']) ) {
                         <span>$task</span>
                         <button type='button' class='btn-clear' onclick='deletar$key()'>Remover</button>
                         <script>
-                        function deletar$key(){
+                            function deletar$key(){
                             if ( confirm('Confirmar remoção?') ) {
-                                window.location = 'http://localhost:8000/?key=$key';
+                                window.location = 'http://localhost:8100/?key=$key';
                         }
                         return false;
 
