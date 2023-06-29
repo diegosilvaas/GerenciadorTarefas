@@ -10,6 +10,7 @@ body {
     font-family: 'Ubuntu', sans-serif;
 }
 
+
 .container {
     background: #fff;
     max-width: 450px;
@@ -70,6 +71,8 @@ body {
     transition: background 0.3s;
 }
 
+
+
 .separator {
     background: #bbb;
     height: 2px;
@@ -81,7 +84,7 @@ body {
     margin-bottom: 12px;
 }
 
-.list-tasks ul{
+.list-tasks ul {
     list-style: none;
 
 }
@@ -101,9 +104,11 @@ body {
 
     transition: background 0.3s;
 }
-
 .list-tasks ul li:hover {
     background: #80CBC4;
+
+.btn-right {
+    margin-left: auto;
 }
 
 .btn-clear {
