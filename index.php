@@ -52,7 +52,7 @@ if (isset($_GET['key']) ) {
         <div class="class">
         </div>
         <div class="form">
-            <form action="task.php" method="post" enctype="multipart/form-data">
+            <form action="" method="get" >
                 <label for="task_name">Tarefa: </label>
                 <input type="text" name="task_name" placeholder="Nome da Tarefa">
                 <label for="task_description">Descrição: </label>
@@ -77,25 +77,28 @@ if (isset($_GET['key']) ) {
                  if ( isset($_SESSION['tasks']) ) {
                     echo "<ul>";
 
-                    foreach ( $_SESSION['tasks'] as $key => $task ) {
-                        echo "<li>
-                        <span>$task</span>
-                        <button type='button' class='btn-clear' onclick='deletar$key()'>Remover</button>
-                        <script>
-                            function deletar$key(){
-                            if ( confirm('Confirmar remoção?') ) {
-                                window.location = 'http://localhost:8100/?key=$key';
-                        }
-                        return false;
-
-                        </script>
-
-
+                    foreach ($_SESSION['tasks'] as $key => $task) {
+                        echo "<li class='list-item'>
+                            <span>$task</span>
+                            <button type='button' class='btn-clear btn-right' onclick='deletar($key)'>Remover</button>
                         </li>";
+                    }
+                    
+                    
+                    echo "<script>
+                        function deletar(key) {
+                            if (confirm('Confirmar remoção?')) {
+                                window.location.href= 'http://localhost/GerenciadorTarefas/?key=' + key;
+                            }
+                        }
+                    </script>";
+                    
+
+                        
                     } 
 
-                    echo "</ul>";
-                 }
+                
+                  
 
             ?>
             <form action="" method="get">
@@ -107,6 +110,16 @@ if (isset($_GET['key']) ) {
             <p>Desenvolvido por Diego Ferreira</p>
         </div>
     </div>
+    <style>
+    .list-item {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btn-right {
+        margin-left: auto;
+    }
+</style>
 
 </body>
 
